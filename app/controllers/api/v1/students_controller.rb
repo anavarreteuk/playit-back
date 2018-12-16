@@ -11,6 +11,18 @@ class Api::V1::StudentsController < ApplicationController
         else render json: {error: 'Username/password invalid.'}, status: 401
         end
     end
+    
+    def signup
+     @student = Student.new(image: params[:image], email: params[:email], password: params[:password], username: params[:username])
+
+    if @student.valid?
+        @student.save
+        puts @student
+        render json: {username: @student.username, email: @student.email, token: issue_token({id: @student.id})}
+    else
+        render json: {error: 'Incorrect details or email address already taken'}, status: 400
+    end
+  end
 
    def validate
         @student = get_current_user
