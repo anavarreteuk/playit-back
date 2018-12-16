@@ -4,6 +4,23 @@ class Api::V1::StudentsController < ApplicationController
         render json: @students
     end
 
+    def signin
+        @student = Student.find_by(username: params[:username])
+        if @student && @student.authenticate(params[:password])
+            render json: {username: @student.username, token: issue_token({id: @student.id})}
+        else render json: {error: 'Username/password invalid.'}, status: 401
+        end
+    end
+
+   def validate
+        @student = get_current_user
+        if @student
+            render json: {username: @student.username, token: issue_token({id: @student.id})}
+        else
+            render json: {error: 'Username/password invalid.'}, status: 401
+        end
+    end
+
     def show 
         @student = Student.find(params[:id])
         if @student
@@ -25,7 +42,7 @@ class Api::V1::StudentsController < ApplicationController
 private
 
 def student_params
-    params.require(:student).permit(:username,:image,:email,:password_digest)
+    params.require(:student).permit(:username,:image,:email,:password)
 
 end
 end

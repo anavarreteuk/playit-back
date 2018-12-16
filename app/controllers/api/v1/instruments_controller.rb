@@ -25,7 +25,7 @@ class Api::V1::InstrumentsController < ApplicationController
 private
 
 def student_params
-    params.require(:instrument).permit(:name)
+    params.require(:instrument).permit(:name,:teacher_id)
 
 end
 
