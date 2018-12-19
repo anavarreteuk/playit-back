@@ -54,7 +54,7 @@ class Api::V1::StudentsController < ApplicationController
 private
 
 def student_params
-    params.require(:student).permit(:username,:image,:email,:password)
+    params.require(:student).permit(:username,:image,:email,:password_digest)
 
 end
 end

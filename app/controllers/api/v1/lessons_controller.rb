@@ -24,8 +24,8 @@ class Api::V1::LessonsController < ApplicationController
 
 private
 
-def student_params
-    params.require(:lesson).permit(:data,:time,:duration,:techer_id,student_id)
+def lesson_params
+    params.require(:lesson).permit(:date,:name,:teacher_id,:student_id,:availability_id)
 
 end
 end
