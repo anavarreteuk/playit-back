@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_154050) do
+ActiveRecord::Schema.define(version: 2018_12_18_111009) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 2018_12_13_154050) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.integer "price_hour"
+    t.decimal "lat"
+    t.decimal "lng"
   end
 
 end
