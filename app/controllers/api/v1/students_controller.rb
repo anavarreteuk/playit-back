@@ -7,7 +7,7 @@ class Api::V1::StudentsController < ApplicationController
     def signin
         @student = Student.find_by(username: params[:username])
         if @student && @student.authenticate(params[:password])
-            render json: {username: @student.username, token: issue_token({id: @student.id})}
+            render json: {userId:@student.id, username: @student.username, token: issue_token({id: @student.id})}
         else render json: {error: 'Username/password invalid.'}, status: 401
         end
     end
@@ -18,7 +18,7 @@ class Api::V1::StudentsController < ApplicationController
     if @student.valid?
         @student.save
         puts @student
-        render json: {username: @student.username, email: @student.email, token: issue_token({id: @student.id})}
+        render json: {userId:@student.id,username: @student.username, email: @student.email, token: issue_token({id: @student.id})}
     else
         render json: {error: 'Incorrect details or email address already taken'}, status: 400
     end

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       post "signin", to: "students#signin"
       post "signup", to: "students#signup"
       get "validate", to: "students#validate"
+      get "teachers/:id/availabilities/:date", to: "teachers#get_teacher_availabilities_in_week"
     end
   end
 end
+
