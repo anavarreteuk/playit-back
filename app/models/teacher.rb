@@ -16,8 +16,8 @@ class Teacher < ApplicationRecord
      lessons_booked = lessons.select{ |l| ((start)..(start + 7.days)).cover?(DateTime.strptime(l.date, '%d/%m/%Y')) }
      availabilities_booked = lessons_booked.map{ |l| l.availability }
 
-     return self.availabilities.map do |a|
-        a.attributes.merge({booked: availabilities_booked.include?(a)})
+     return self.availabilities.each_with_index.map do |a, i|
+        a.attributes.merge({booked: availabilities_booked.include?(a), date: start + i.days})
      end
     end
 
