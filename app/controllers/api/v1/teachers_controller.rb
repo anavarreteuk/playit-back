@@ -21,6 +21,15 @@ class Api::V1::TeachersController < ApplicationController
         end 
     end
 
+    def get_teacher_availabilities_in_week
+        @teacher = Teacher.find_by(id: params[:id])
+        if @teacher
+            render json: @teacher.availabilities_in_week(params[:date])
+        else
+            render json: {error: 'Teacher not found'}, status: 401
+        end
+    end
+
 private
 
 def teacher_params
