@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2018_12_19_173159) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_173159) do
     t.string "email"
     t.string "password_digest"
     t.string "image"
+    t.integer "instrument_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"

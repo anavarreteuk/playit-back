@@ -1,4 +1,4 @@
 class InstrumentSerializer < ActiveModel::Serializer
-  attributes :id, :name, :teacher
-  belongs_to :teacher
+  attributes :id, :name, :teachers
+  has_many :teachers
 end
