@@ -27,7 +27,7 @@ class Api::V1::StudentsController < ApplicationController
    def validate
         @student = get_current_user
         if @student
-            render json: {username: @student.username, token: issue_token({id: @student.id})}
+            render json: {userId:@student.id,username: @student.username, token: issue_token({id: @student.id})}
         else
             render json: {error: 'Username/password invalid.'}, status: 401
         end
