@@ -1,6 +1,6 @@
 class Teacher < ApplicationRecord
     belongs_to :instrument
-    belongs_to :lesson
+    has_many :lessons
     has_many :availabilities
 
     #def availabilities_in_week(start_date)
