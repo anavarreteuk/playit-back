@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2018_12_19_173159) do
     t.datetime "updated_at", null: false
     t.string "location"
     t.integer "price_hour"
-    t.decimal "lat"
-    t.decimal "lng"
+    t.float "latitude"
+    t.float "longitude"
   end
 
 end

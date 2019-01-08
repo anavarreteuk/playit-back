@@ -22,6 +22,13 @@ class Api::V1::LessonsController < ApplicationController
         end 
     end
 
+    def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy!
+    render json: {status: 'Deleted'}
+    
+end
+
 private
 
 def lesson_params
