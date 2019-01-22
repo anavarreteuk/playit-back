@@ -33,7 +33,7 @@ class Api::V1::TeachersController < ApplicationController
 private
 
 def teacher_params
-    params.require(:teacher).permit(:username,:image,:email,:password_digest)
+    params.require(:teacher).permit(:username,:image,:email,:instrument_id,:location,:price_hour)
 
 
 end

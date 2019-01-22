@@ -1,8 +1,12 @@
 class Teacher < ApplicationRecord
-    has_many :instruments
+    
+    belongs_to :instrument
     has_many :lessons
     has_many :availabilities
-
+  
+    geocoded_by :location
+    after_validation :geocode, :if => :location_changed?
+    
     #def availabilities_in_week(start_date)
         # start_date = '11022019'
         # DateTime.strptime(start_date, '%d/%m/%Y')
@@ -20,5 +24,7 @@ class Teacher < ApplicationRecord
         a.attributes.merge({booked: availabilities_booked.include?(a), date: start + i.days})
      end
     end
+
+  
 
 end
