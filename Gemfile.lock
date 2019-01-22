@@ -86,6 +86,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    pg (1.1.4)
     puma (3.12.0)
     rack (2.0.6)
     rack-cors (1.0.2)
@@ -152,6 +153,7 @@ DEPENDENCIES
   geocoder
   jwt
   listen (>= 3.0.5, < 3.2)
+  pg
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.1)
